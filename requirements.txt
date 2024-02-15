@@ -4,3 +4,5 @@ pyarrow == 15.0.0
 fastparquet == 2024.2.0
 mlflow == 2.10.2
 nltk == 3.8.1
+seaborn == 0.13.2
+matplotlib == 3.8.2
