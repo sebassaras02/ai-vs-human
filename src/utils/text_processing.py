@@ -99,6 +99,8 @@ class TextProcessing:
         Returns:
             list of strings
         """
+        if isinstance(text, bytes):
+            text = text.decode('utf-8')  # Decodificar si es una cadena de bytes
         text = re.sub(r'[^\w\s]', '', text)
         text = re.sub(r'\n', '', text)
         text = re.sub(r'\d', '', text)
@@ -135,5 +137,24 @@ class TextProcessing:
         df['processed_text'] = df['processed_text'].apply(lambda x: self.join_tokens_cleaned(x))
 
         return df
+
+    def fit_transform_text(self, text):
+        """
+        This function receives a string and applies the text processing methods to it.
+
+        Args:
+            text : list with raw texts
+
+        Returns:
+            text : list with curated texts
+        """
+        text = self.remove_punctuation(text)
+        text = self.tokenize(text)
+        text = self.lowercase_tokens(text)
+        text = self.remove_stopwords(text)
+        text = self.remove_short_tokens(text)
+        text = self.steem_tokens(text)
+        text = self.join_tokens_cleaned(text)
+        return text
         
 
