@@ -2,7 +2,6 @@ import numpy as np
 import pandas as pd
 import re
 import mlflow
-from dotenv import load_dotenv
 from joblib import dump, load
 import sys
 
