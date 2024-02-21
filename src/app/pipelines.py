@@ -5,8 +5,7 @@ import mlflow
 from joblib import dump, load
 import sys
 
-sys.path.append('../utils')
-from text_processing import TextProcessing
+from utils.text_processing import TextProcessing
 
 
 def pipeline_inference(input : str):

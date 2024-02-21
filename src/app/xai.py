@@ -3,9 +3,8 @@ import pandas as pd
 import sys
 from lime.lime_text import LimeTextExplainer
 
-sys.path.append('../')
 
-from app.pipelines import pipeline_inference
+from pipelines import pipeline_inference
 
 def f(x):
     results = np.zeros((len(x), 2))  # Asumiendo que num_classes es la cantidad de clases en tu problema
