@@ -75,7 +75,9 @@ elif a and xai_option:
             df = pd.DataFrame(list(explanation.items()), columns=['Palabras', 'Números'])
             df['Signo'] = ['Positivo' if x >= 0 else 'Negativo' for x in df['Números']]
             df = df.sort_values('Números', ascending=False)
-            fig = px.bar(df, x='Palabras', y='Números', color='Signo', color_discrete_map={'Positivo': 'red', 'Negativo': 'blue'})
+            df = df.rename(columns={'Palabras': 'Words', 'Números': 'Frequency', 'Signo': 'Type'})
+            df['Type'] = df['Type'].map({'Positivo': 'IA Pattern', 'Negativo': 'Humman Pattern'})
+            fig = px.bar(df, y='Words', x='Frequency', color='Type', color_discrete_map={'IA Pattern': 'red', 'Humman Pattern': 'blue'})
             st.subheader('Explanation of the classification:')
             st.markdown('The following words are the most important to classify the text:')
             st.plotly_chart(fig)
