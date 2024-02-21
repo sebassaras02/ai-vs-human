@@ -10,11 +10,11 @@ from utils.text_processing import TextProcessing
 
 def pipeline_inference(input : str):
     # load tf-idf model
-    tfidf_model = load('../../models/tfidf_model.joblib')
+    tfidf_model = load('/models/tfidf_model.joblib')
     # load pca model
-    pca_model = load('../../models/pca_model.joblib')
+    pca_model = load('/models/pca_model.joblib')
     # load the model
-    classifier_model = load('../../models/classifier_model.joblib')
+    classifier_model = load('/models/classifier_model.joblib')
 
     # preprocess the input
     text_processing = TextProcessing()
