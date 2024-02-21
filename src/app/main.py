@@ -1,8 +1,7 @@
 import streamlit as st
 import sys
-sys.path.append('../')
-from app.pipelines import pipeline_inference
-from app.xai import get_explanation
+from pipelines import pipeline_inference
+from xai import get_explanation
 import time
 import pandas as pd
 import plotly.express as px
