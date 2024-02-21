@@ -6,6 +6,10 @@ import time
 import pandas as pd
 import plotly.express as px
 
+import nltk
+
+nltk.download('stopwords')
+
 
 st.title('Text identification app')
 
